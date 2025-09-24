@@ -10,9 +10,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @ControllerAdvice
 public class GloableExceptionHandler {
 
@@ -28,8 +25,6 @@ public class GloableExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Response> handleValidationExceptions(MethodArgumentNotValidException ex) {
-        // Get the first error message
-//        String errorMessage = ex.getBindingResult().getAllErrors().get(0).getDefaultMessage();
         return new ResponseEntity(new Response("Invalid field or something missing to fill"), HttpStatus.BAD_REQUEST);
     }
 
