@@ -36,7 +36,7 @@ public class DatabaseController {
 
     @DeleteMapping("/remove/{id}")
     public ResponseEntity<Response> remove(@PathVariable Long id) {
-        if (service.deleteDatabaseSetting(id)){
+        if (service.deleteDatabaseSetting(id)) {
             return ResponseEntity.ok(new Response("Setting Deleted Successfully !"));
         }
         return ResponseEntity.status(500).body(new Response("Failed to Delete !"));
